@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动森主题 · 福冈5天4晚金秋红叶火山路书</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fredoka & Noto Sans SC -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ac: {
+              grass: '#78C850',
+              darkgrass: '#539E2A',
+              cream: '#FBF6DC',
+              warmyellow: '#F9D849',
+              wood: '#8C6239',
+              darkwood: '#593E22',
+              leaf: '#4FA838',
+              sky: '#7CD4F7',
+              nookbg: '#FFFDF0',
+              nookborder: '#8C6B3F'
+            }
+          },
+          fontFamily: {
+            ac: ['Fredoka', 'Noto Sans SC', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #e3f4ce;
+      background-image: radial-gradient(#bae089 15%, transparent 16%), radial-gradient(#bae089 15%, transparent 16%);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+      color: #3b2c1a;
+      font-family: 'Fredoka', 'Noto Sans SC', sans-serif;
+    }
+    .ac-card {
+      background-color: #fbf6dc;
+      border: 4px solid #8c6239;
+      border-radius: 28px;
+      box-shadow: 0 8px 0 #593e22;
+    }
+    .ac-badge {
+      background-color: #78C850;
+      border: 3px solid #539E2A;
+      color: white;
+      text-shadow: 1px 1px 0 #3b5c1c;
+    }
+    .nook-dialog {
+      background: #fffdf0;
+      border: 4px solid #8c6b3f;
+      border-radius: 20px;
+      box-shadow: 0 6px 0 #593e22;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #fbf6dc;
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #78C850;
+      border-radius: 10px;
+      border: 2px solid #539E2A;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white; color: black; background-image: none; }
+      .tab-content { display: block !important; margin-bottom: 2rem; page-break-after: always; }
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-12 antialiased">
+
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 pt-6">
+
+    <!-- Header Banner -->
+    <header class="ac-card p-6 sm:p-8 mb-6 relative overflow-hidden">
+      <div class="absolute -right-6 -bottom-6 text-ac-grass opacity-20 text-9xl pointer-events-none transform rotate-12">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="ac-badge px-3 py-0.5 rounded-full text-xs font-bold flex items-center gap-1">
+              <i class="fa-solid fa-plane"></i> 5天4晚无人岛秋游计划
+            </span>
+            <span class="bg-ac-warmyellow border-2 border-ac-wood text-ac-darkwood text-xs font-bold px-3 py-0.5 rounded-full shadow-sm">
+              🏡 宿：博多站前酒店
+            </span>
+          </div>
+          <h1 class="text-2xl sm:text-4xl font-extrabold text-ac-darkwood tracking-wide flex items-center gap-3">
+            🍃 福冈金秋赏枫·阿苏火山路书 
+          </h1>
+          <p class="text-xs sm:text-sm text-ac-wood mt-1.5 font-bold">
+            🗓️ 11/18 – 11/22｜每天活动 &lt; 10小时｜阿苏火山·长崎夜景·糸岛红叶·巨型高达
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-2.5 no-print flex-wrap">
+          <button onclick="copyShareCard()" class="bg-ac-grass hover:bg-ac-darkgrass text-white border-2 border-ac-darkgrass font-bold px-4 py-2 rounded-2xl text-xs sm:text-sm shadow-[0_4px_0_#539E2A] active:translate-y-1 active:shadow-none transition flex items-center gap-1.5">
+            <i class="fa-solid fa-copy"></i> 一键复制卡片
+          </button>
+          <button onclick="window.print()" class="bg-white hover:bg-stone-100 text-ac-darkwood border-2 border-ac-wood font-bold px-3.5 py-2 rounded-2xl text-xs sm:text-sm shadow-[0_4px_0_#8c6239] active:translate-y-1 active:shadow-none transition flex items-center gap-1.5">
+            <i class="fa-solid fa-print"></i> 导出 / PDF
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Nook Prompt Banner (JR Pass Banner) -->
+    <div class="nook-dialog p-4 mb-6 flex items-start sm:items-center gap-3 relative">
+      <div class="w-12 h-12 rounded-full bg-ac-warmyellow border-2 border-ac-wood flex-shrink-0 flex items-center justify-center text-2xl shadow">
+        🦝
+      </div>
+      <div class="flex-grow">
+        <h4 class="font-extrabold text-ac-darkwood text-sm flex items-center gap-2">
+          狸克交通推荐：购买 JR 北九州 3日周游券（Pass）
+        </h4>
+        <p class="text-xs text-ac-wood mt-0.5 font-medium leading-relaxed">
+          包含 Day 2 (阿苏) + Day 3 (长崎)，周游券售价约 12,000~14,000 日元，相比原价单购车票（~27,000日元）<strong>人均可省 1.3 万+日元</strong>！
+        </p>
+      </div>
+      <button onclick="togglePassModal()" class="no-print bg-ac-warmyellow hover:bg-amber-400 text-ac-darkwood border-2 border-ac-wood font-bold px-3 py-1.5 rounded-xl text-xs shadow-[0_3px_0_#8c6239] active:translate-y-0.5 active:shadow-none whitespace-nowrap">
+        看算盘明细
+      </button>
+    </div>
+
+    <!-- Day Navigation Wooden Tabs -->
+    <nav class="flex space-x-2 border-b-4 border-ac-wood pb-3 mb-6 overflow-x-auto custom-scrollbar no-print">
+      <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn active px-4 py-2.5 rounded-2xl text-sm font-extrabold whitespace-nowrap transition flex items-center gap-2 bg-ac-grass text-white border-2 border-ac-darkgrass shadow-[0_4px_0_#539E2A]">
+        <span>🍃 Day 1</span>
+        <span class="text-xs opacity-90">抵达·博多购物</span>
+      </button>
+      <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn px-4 py-2.5 rounded-2xl text-sm font-extrabold whitespace-nowrap transition flex items-center gap-2 bg-white text-ac-darkwood border-2 border-ac-wood hover:bg-amber-50">
+        <span>🌋 Day 2</span>
+        <span class="text-xs opacity-80">阿苏火山·草千里</span>
+      </button>
+      <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn px-4 py-2.5 rounded-2xl text-sm font-extrabold whitespace-nowrap transition flex items-center gap-2 bg-white text-ac-darkwood border-2 border-ac-wood hover:bg-amber-50">
+        <span>🏮 Day 3</span>
+        <span class="text-xs opacity-80">长崎港都·夜景</span>
+      </button>
+      <button onclick="switchTab(4)" id="tab-btn-4" class="tab-btn px-4 py-2.5 rounded-2xl text-sm font-extrabold whitespace-nowrap transition flex items-center gap-2 bg-white text-ac-darkwood border-2 border-ac-wood hover:bg-amber-50">
+        <span>🍁 Day 4</span>
+        <span class="text-xs opacity-80">糸岛古枫·二见浦</span>
+      </button>
+      <button onclick="switchTab(5)" id="tab-btn-5" class="tab-btn px-4 py-2.5 rounded-2xl text-sm font-extrabold whitespace-nowrap transition flex items-center gap-2 bg-white text-ac-darkwood border-2 border-ac-wood hover:bg-amber-50">
+        <span>🤖 Day 5</span>
+        <span class="text-xs opacity-80">高达·伴手礼返程</span>
+      </button>
+    </nav>
+
+    <!-- TAB CONTENTS -->
+    <main id="tab-contents">
+
+      <!-- DAY 1 CONTENT -->
+      <section id="tab-content-1" class="tab-content space-y-6">
+        <div class="ac-card p-5 flex justify-between items-center flex-wrap gap-3">
+          <div>
+            <h2 class="text-lg sm:text-xl font-extrabold text-ac-darkwood">Day 1：抵达福冈、博多站商圈购物与经典拉面</h2>
+            <p class="text-xs text-ac-wood mt-0.5 font-bold"><i class="fa-regular fa-clock mr-1"></i>约 11:00 - 20:00（户外时间约 6-7 小时，节奏舒适）</p>
+          </div>
+          <span class="ac-badge px-3 py-1 rounded-full text-xs font-bold">扫货·经典豚骨拉面</span>
+        </div>
+
+        <!-- Spot Highlights for Day 1 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-2xl border-2 border-ac-wood shadow">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🛍️</span>
+              <h4 class="font-extrabold text-ac-darkwood text-sm">博多站 AMU & KITTE 商圈</h4>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              九州交通枢纽上的超大型百货复合体，包含 AMU Plaza、KITTE博多及东急Hands。集合了日本潮牌服饰、药妆杂货及丰富地道美食。
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border-2 border-ac-wood shadow">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🍜</span>
+              <h4 class="font-extrabold text-ac-darkwood text-sm">一兰 本社总本店</h4>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              位于中洲川端站旁的一兰拉面全球总楼，充满灯笼装饰。拥有独特的“味集中”独立隔间，提供纯正浓郁的博多豚骨拉面与抹茶杏仁豆腐。
+            </p>
+          </div>
+        </div>
+
+        <!-- Schedule Items -->
+        <div class="ac-card p-6 space-y-5">
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">1</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">11:00 - 13:30</span>
+              <h3 class="font-bold text-stone-800 text-sm">福冈机场 ➔ 博多站附近酒店寄存行李</h3>
+              <div class="mt-2 bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-xs text-ac-darkwood space-y-1">
+                <p><strong>🚇 交通路线：</strong>福冈机场国际线乘免费接驳巴士到国内线 ➔ 换乘地下铁空港线（侄浜方向），仅 2 站（5分钟）直达博多站。</p>
+                <p><strong>⏰ 首末班车：</strong>地下铁首班 05:45｜末班 00:25｜票价 260 日元。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">2</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">13:30 - 18:30</span>
+              <h3 class="font-bold text-stone-800 text-sm">博多站核心商圈购物（AMU / KITTE / 东急Hands）</h3>
+              <div class="mt-2 bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-xs text-ac-darkwood space-y-1">
+                <p><strong>🛍️ 逛街区域：</strong>JR Hakata City、AMU Plaza、KITTE博多（博多マルイ），集合潮流服饰、药妆与文具杂货。</p>
+                <p><strong>⏰ 营业时间：</strong>商场 10:00 - 20:00｜餐厅层 11:00 - 22:00。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">3</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">18:30 - 20:00</span>
+              <h3 class="font-bold text-stone-800 text-sm">中洲美食漫步：打卡一兰总店与屋台</h3>
+              <div class="mt-2 bg-white p-3 rounded-xl border border-stone-200 text-xs text-stone-700 space-y-2">
+                <p class="font-bold text-red-700">🍜 【一兰 本社总本店】（中洲川端站2号口）</p>
+                <p class="text-stone-600">经典的独栋总店大楼，24小时营业，经典“味集中计数”独立隔间享用浓郁豚骨拉面。</p>
+                <p class="font-bold text-red-700 mt-2">🥩 【博多多牛】（博多站筑紫口附近）</p>
+                <p class="text-stone-600">当地高性价比黑毛和牛烧肉，建议提前排队。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 2 CONTENT -->
+      <section id="tab-content-2" class="tab-content hidden space-y-6">
+        <div class="ac-card p-5 flex justify-between items-center flex-wrap gap-3">
+          <div>
+            <h2 class="text-lg sm:text-xl font-extrabold text-ac-darkwood">Day 2：阿苏火山与草千里壮丽风光一日游</h2>
+            <p class="text-xs text-ac-wood mt-0.5 font-bold"><i class="fa-regular fa-clock mr-1"></i>约 08:35 - 18:40（约 10 小时）</p>
+          </div>
+          <span class="ac-badge px-3 py-1 rounded-full text-xs font-bold">Pass第1天 · 火山绝景</span>
+        </div>
+
+        <!-- Spot Highlights for Day 2 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-2xl border-2 border-ac-wood shadow">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🌾</span>
+              <h4 class="font-extrabold text-ac-darkwood text-sm">阿苏草千里（草千里之滨）</h4>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              位于阿苏中岳北麓的大草原，拥有双雨水池与绿草绵延的旷远景致。可在此远眺火山冒烟，体验大草原漫步或骑马游览。
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border-2 border-ac-wood shadow">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🌋</span>
+              <h4 class="font-extrabold text-ac-darkwood text-sm">阿苏中岳火山口</h4>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              世界上少有的可近距离观察活跃火山口的景点之一。能亲眼目睹翠绿色火山湖与袅袅升起的浓烟（开放情况视气象与二氧化硫浓度而定）。
+            </p>
+          </div>
+        </div>
+
+        <!-- Schedule Items -->
+        <div class="ac-card p-6 space-y-5">
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">1</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">08:35 - 10:40</span>
+              <h3 class="font-bold text-stone-800 text-sm">博多 ➔ JR 熊本站 ➔ JR 阿苏站</h3>
+              <div class="mt-2 bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-xs text-ac-darkwood space-y-1">
+                <p><strong>🚄 交通路线：</strong>博多站搭乘九州新干线至“熊本站”（38分钟）➔ 同站换乘特急“阿苏男孩号（Aso Boy!）”或“九州横断特急”至阿苏站（70分钟）。</p>
+                <p><strong>🎫 Pass提示：</strong>全段 100% 涵盖于 JR 北九州 Pass。观光列车“阿苏男孩号”需提前划位。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">2</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">10:50 - 15:30</span>
+              <h3 class="font-bold text-stone-800 text-sm">草千里漫步、火山探秘与赤牛午餐</h3>
+              <div class="mt-2 bg-white p-3 rounded-xl border border-stone-200 text-xs text-stone-700 space-y-2">
+                <p><strong>🚌 巴士接驳：</strong>JR 阿苏站前搭乘产交巴士“阿苏火口线”至草千里（约 35 分钟）。</p>
+                <p><strong>🌋 注意事项：</strong>如果火山气体超标暂停开放火口，草千里大草原与火山远景也完全值得打卡！</p>
+                <p class="font-bold text-red-700 mt-2">🍱 【草千里展望餐厅 · 赤牛丼】</p>
+                <p class="text-stone-600">品尝阿苏特产半熟赤牛盖饭，肉质鲜嫩极香。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">3</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">15:30 - 18:40</span>
+              <h3 class="font-bold text-stone-800 text-sm">巴士下山到阿苏站 ➔ 返程回到博多</h3>
+              <div class="mt-2 bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-xs text-ac-darkwood space-y-1">
+                <p><strong>🚄 返程参考：</strong>15:30 搭巴士下山到阿苏站 ➔ 16:30 乘坐特急经熊本转新干线，18:40 安全回到博多站。</p>
+                <p><strong>🍲 晚餐推荐：</strong>博多一番街【もつ锅 笑乐】热腾腾牛肠锅。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 3 CONTENT -->
+      <section id="tab-content-3" class="tab-content hidden space-y-6">
+        <div class="ac-card p-5 flex justify-between items-center flex-wrap gap-3">
+          <div>
+            <h2 class="text-lg sm:text-xl font-extrabold text-ac-darkwood">Day 3：长崎历史风情与稻佐山夜景一日游</h2>
+            <p class="text-xs text-ac-wood mt-0.5 font-bold"><i class="fa-regular fa-clock mr-1"></i>约 08:35 - 20:30（约 11 小时）</p>
+          </div>
+          <span class="ac-badge px-3 py-1 rounded-full text-xs font-bold">Pass第2天 · 千万夜景</span>
+        </div>
+
+        <!-- Spot Highlights for Day 3 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-2xl border-2 border-ac-wood shadow">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🏛️</span>
+              <h4 class="font-extrabold text-ac-darkwood text-sm">哥拉巴园 (Glover Garden)</h4>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              坐落于南山手丘陵上的西洋风建筑群遗址，保存有木造洋馆与花园。在此可以俯瞰长崎港美景，寻找传说中能带来幸运的“心形石”。
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border-2 border-ac-wood shadow">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🌃</span>
+              <h4 class="font-extrabold text-ac-darkwood text-sm">稻佐山山顶展望台</h4>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              号称“千万美元夜景”的世界新三大夜景之一。搭乘空中缆车登上山顶，能360度饱览蜿蜒港湾与满山万家灯火闪耀的壮丽景观。
+            </p>
+          </div>
+        </div>
+
+        <!-- Schedule Items -->
+        <div class="ac-card p-6 space-y-5">
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">1</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">08:35 - 09:55</span>
+              <h3 class="font-bold text-stone-800 text-sm">博多 ➔ 武雄温泉 ➔ JR 长崎站</h3>
+              <div class="mt-2 bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-xs text-ac-darkwood space-y-1">
+                <p><strong>🚄 交通路线：</strong>博多站搭乘 JR 特急“接力海鸥号”至武雄温泉站，同台转乘“西九州新干线海鸥号”直达长崎（仅 1 小时 20 分钟）。</p>
+                <p><strong>⏰ 车次建议：</strong>08:35 博多发车 ➔ 09:55 抵长崎；回程 19:00 长崎发车 ➔ 20:25 抵博多。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">2</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">10:00 - 16:30</span>
+              <h3 class="font-bold text-stone-800 text-sm">长崎路面电车：平和公园、眼镜桥、哥拉巴园</h3>
+              <div class="mt-2 bg-white p-3 rounded-xl border border-stone-200 text-xs text-stone-700 space-y-2">
+                <p><strong>🚃 市内交通：</strong>购买长崎路面电车一日券（600日元）随上随下。</p>
+                <p class="font-bold text-red-700 mt-2">🍜 【四海楼 (Shikairo)】</p>
+                <p class="text-stone-600">长崎什锦面（Champon）发源老店，哥拉巴园下车即达，海景绝佳。</p>
+                <p class="font-bold text-red-700 mt-1">🍱 【吉宗 本店】</p>
+                <p class="text-stone-600">百年老店，招牌巨型茶碗蒸与三色蒸寿司绝配（Tabelog 3.6+）。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">3</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">16:30 - 19:00</span>
+              <h3 class="font-bold text-stone-800 text-sm">稻佐山缆车看日落夜景 ➔ 返程博多</h3>
+              <p class="text-xs text-stone-600 mt-1">搭乘缆车登顶，俯瞰世界三大夜景之一，随后搭乘 19:00 新干线返回博多。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 4 CONTENT -->
+      <section id="tab-content-4" class="tab-content hidden space-y-6">
+        <div class="ac-card p-5 flex justify-between items-center flex-wrap gap-3">
+          <div>
+            <h2 class="text-lg sm:text-xl font-extrabold text-ac-darkwood">Day 4：糸岛红叶秘境与二见浦海岸一日游</h2>
+            <p class="text-xs text-ac-wood mt-0.5 font-bold"><i class="fa-regular fa-clock mr-1"></i>约 09:00 - 17:30（约 8.5 小时，赏枫惬意）</p>
+          </div>
+          <span class="ac-badge px-3 py-1 rounded-full text-xs font-bold">400年古枫 · 海上白色鸟居</span>
+        </div>
+
+        <!-- Spot Highlights for Day 4 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-2xl border-2 border-ac-wood shadow">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🍁</span>
+              <h4 class="font-extrabold text-ac-darkwood text-sm">雷山千如寺大悲王院</h4>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              福冈最顶尖的红叶胜地。庭园内有一株树龄超过 400 年的指定天然纪念物巨型大枫树，金秋11月中下旬满树红叶铺满地面，极为震撼。
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border-2 border-ac-wood shadow">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">⛩️</span>
+              <h4 class="font-extrabold text-ac-darkwood text-sm">二见浦夫妇岩 & 白色鸟居</h4>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              入选“日本海岸百选”的绝美名胜。矗立在玄界滩浅海中的纯白色鸟居与注连绳紧系的两座夫妇岩相映成趣，周边汇聚多家网红海景咖啡馆。
+            </p>
+          </div>
+        </div>
+
+        <!-- Schedule Items -->
+        <div class="ac-card p-6 space-y-5">
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">1</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">09:00 - 12:15</span>
+              <h3 class="font-bold text-stone-800 text-sm">博多 ➔ 雷山千如寺大悲王院（福冈红叶天花板）</h3>
+              <div class="mt-2 bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-xs text-ac-darkwood space-y-1">
+                <p><strong>🚇 转乘路线：</strong>博多站搭地下铁空港线（直通JR筑肥线）至“筑前前原站”（40分钟）➔ 换乘糸岛社区巴士“雷山线”至终点“雷山观音前”（20分钟）➔ 步行5分钟即达。</p>
+                <p><strong>🍁 看点：</strong>寺内 400 年古枫树满庭红叶（门票约 100 日元）。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">2</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">12:20 - 13:40</span>
+              <h3 class="font-bold text-stone-800 text-sm">二见浦海岸 & 海景午餐</h3>
+              <div class="mt-2 bg-white p-3 rounded-xl border border-stone-200 text-xs text-stone-700 space-y-2">
+                <p><strong>🚌 巴士接驳：</strong>搭社区巴士返回前原站 ➔ 换乘昭和巴士（野北·二见浦线）直达二见浦。</p>
+                <p class="font-bold text-red-700 mt-2">🍱 【塚本鲜鱼店】（前原站附近）</p>
+                <p class="text-stone-600">当地高分海鲜店（Tabelog 3.6+），特上海鲜盖饭极其超值。</p>
+                <p class="font-bold text-red-700 mt-1">☕ 【糸岛茶房 (Itoshima Sabo)】（二见浦海岸）</p>
+                <p class="text-stone-600">无敌海景餐厅，舒芙蕾松饼与海鲜意面打卡必吃。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">3</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">16:35 - 17:35</span>
+              <h3 class="font-bold text-stone-800 text-sm">二见浦 ➔ 高速巴士直达返回博多</h3>
+              <div class="mt-2 bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-xs text-ac-darkwood space-y-1">
+                <p><strong>🚌 直达高速巴士：</strong>在“二见浦”站直接搭乘“West Coast Liner”直达博多站（约1小时，单程1,150日元，不用换乘）。</p>
+                <p><strong>🍜 晚餐推荐：</strong>回到博多站后品尝【博多一双 博多本店】浓郁泡沫系拉面。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DAY 5 CONTENT -->
+      <section id="tab-content-5" class="tab-content hidden space-y-6">
+        <div class="ac-card p-5 flex justify-between items-center flex-wrap gap-3">
+          <div>
+            <h2 class="text-lg sm:text-xl font-extrabold text-ac-darkwood">Day 5：LaLaPort高达立像、伴手礼扫货与离境</h2>
+            <p class="text-xs text-ac-wood mt-0.5 font-bold"><i class="fa-regular fa-clock mr-1"></i>约 09:30 - 16:00（18:00 航班返程）</p>
+          </div>
+          <span class="ac-badge px-3 py-1 rounded-full text-xs font-bold">1:1高达 · 伴手礼冲刺</span>
+        </div>
+
+        <!-- Spot Highlights for Day 5 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-2xl border-2 border-ac-wood shadow">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🤖</span>
+              <h4 class="font-extrabold text-ac-darkwood text-sm">LaLaPort Fukuoka 巨型高达</h4>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              拥有 24.8 米高、全日本最高的 1:1 RX-93ff ν 高达立像。整点有头部与手臂移动演练，4楼配有专门的 Gundam Side-F 官方基地。
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border-2 border-ac-wood shadow">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🛍️</span>
+              <h4 class="font-extrabold text-ac-darkwood text-sm">博多老街 (Ming 伴手礼街)</h4>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              博多站内的名产一条街，汇集福冈最负盛名的明太子、博多通通りもん奶香饼、筑紫饼及各类限定甜点，离境前的最佳采购点。
+            </p>
+          </div>
+        </div>
+
+        <!-- Schedule Items -->
+        <div class="ac-card p-6 space-y-5">
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">1</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">09:30 - 12:30</span>
+              <h3 class="font-bold text-stone-800 text-sm">LaLaPort Fukuoka（巨型高达与商场购物）</h3>
+              <div class="mt-2 bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-xs text-ac-darkwood space-y-1">
+                <p><strong>🚌 交通路线：</strong>博多站 Bus Terminal 1楼 13号站台搭乘直达巴士（约 20 分钟）。</p>
+                <p><strong>🤖 看点：</strong>24.8米高 1:1 高达立像（整点有演示演出），馆内有 Gundam Side-F 专卖店。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">2</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">13:30 - 16:00</span>
+              <h3 class="font-bold text-stone-800 text-sm">博多站老街（Ming）：伴手礼集中扫货与取行李</h3>
+              <div class="mt-2 bg-white p-3 rounded-xl border border-stone-200 text-xs text-stone-700 space-y-1.5">
+                <p class="font-bold text-amber-900">🛍️ 必买伴手礼推荐：</p>
+                <ul class="list-disc list-inside space-y-1 text-stone-600">
+                  <li>福太郎 明太子仙贝 (Menbei)</li>
+                  <li>博多通通りもん (Totorimon 奶香软饼)</li>
+                  <li>如水庵 筑紫饼 (黑糖黄豆粉麻糬)</li>
+                  <li>冷藏保鲜包 明太子 (配饭神器)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-full bg-ac-warmyellow border-2 border-ac-wood font-bold text-ac-darkwood flex items-center justify-center text-xs flex-shrink-0">3</span>
+            <div class="w-full">
+              <span class="text-xs font-bold text-ac-darkgrass">16:00 - 18:00</span>
+              <h3 class="font-bold text-stone-800 text-sm">去福冈机场 ➔ 轻松离境返程</h3>
+              <p class="text-xs text-stone-600 mt-1">博多站搭乘地下铁仅 5 分钟直达机场（或乘出租车15分钟），顺利搭乘 18:00 航班返程！</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- JR Pass Comparison Modal Window -->
+    <div id="pass-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+      <div class="ac-card max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+        <button onclick="togglePassModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-ac-warmyellow border-2 border-ac-wood text-ac-darkwood font-bold flex items-center justify-center text-base hover:bg-amber-400">
+          ✖
+        </button>
+
+        <h3 class="text-xl font-extrabold text-ac-darkwood mb-2 flex items-center gap-2">
+          🦝 狸克算盘：JR Pass 精算比价
+        </h3>
+        <p class="text-xs text-ac-wood font-medium mb-4">
+          涵盖 Day 2 至 Day 4 的 JR 长途列车交通。
+        </p>
+
+        <div class="space-y-2.5 text-xs">
+          <div class="p-3 bg-white rounded-xl border-2 border-ac-wood flex justify-between items-center">
+            <div>
+              <p class="font-bold text-stone-800">Day 2: 博多 ↔ 阿苏 (新干线+特急往返)</p>
+              <p class="text-stone-500 text-[10px]">正价原价</p>
+            </div>
+            <span class="font-mono font-bold text-red-600">~13,000 日元</span>
+          </div>
+
+          <div class="p-3 bg-white rounded-xl border-2 border-ac-wood flex justify-between items-center">
+            <div>
+              <p class="font-bold text-stone-800">Day 3: 博多 ↔ 长崎 (接力海鸥+新干线往返)</p>
+              <p class="text-stone-500 text-[10px]">正价原价</p>
+            </div>
+            <span class="font-mono font-bold text-red-600">~12,980 日元</span>
+          </div>
+
+          <div class="p-3 bg-white rounded-xl border-2 border-ac-wood flex justify-between items-center">
+            <div>
+              <p class="font-bold text-stone-800">Day 4: 博多 ↔ 筑前前原 (部分JR段)</p>
+              <p class="text-stone-500 text-[10px]">正价原价</p>
+            </div>
+            <span class="font-mono font-bold text-stone-600">~1,280 日元</span>
+          </div>
+
+          <div class="p-3 bg-amber-100 rounded-xl border-2 border-ac-wood text-ac-darkwood">
+            <div class="flex justify-between items-center font-bold">
+              <span>单独买票总价：</span>
+              <span class="font-mono text-red-700 font-extrabold text-sm">~27,260 日元</span>
+            </div>
+            <div class="flex justify-between items-center font-bold mt-1 text-ac-darkgrass">
+              <span>JR 北九州 3日 Pass 售价：</span>
+              <span class="font-mono text-base font-extrabold">~12,000 - 14,000 日元</span>
+            </div>
+            <p class="text-[11px] text-red-700 font-extrabold mt-2 border-t border-amber-200 pt-1 text-center">
+              🎉 结论：购买 Pass 每人可立省约 13,000+ 日元！
+            </p>
+          </div>
+        </div>
+
+        <button onclick="togglePassModal()" class="w-full mt-5 bg-ac-grass hover:bg-ac-darkgrass text-white font-extrabold py-2.5 rounded-2xl border-2 border-ac-darkgrass shadow-[0_4px_0_#539E2A] transition text-xs">
+          了解，决定购买周游券！
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(dayNumber) {
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-ac-grass', 'text-white', 'border-ac-darkgrass', 'shadow-[0_4px_0_#539E2A]');
+        btn.classList.add('bg-white', 'text-ac-darkwood', 'border-ac-wood');
+      });
+
+      const selectedContent = document.getElementById(`tab-content-${dayNumber}`);
+      if (selectedContent) {
+        selectedContent.classList.remove('hidden');
+      }
+
+      const selectedBtn = document.getElementById(`tab-btn-${dayNumber}`);
+      if (selectedBtn) {
+        selectedBtn.classList.remove('bg-white', 'text-ac-darkwood', 'border-ac-wood');
+        selectedBtn.classList.add('bg-ac-grass', 'text-white', 'border-ac-darkgrass', 'shadow-[0_4px_0_#539E2A]');
+      }
+    }
+
+    function togglePassModal() {
+      document.getElementById('pass-modal').classList.toggle('hidden');
+    }
+
+    function copyShareCard() {
+      const shareText = `🍃【动森主题·福冈5天4晚金秋红叶火山之旅】🍃\n🗓️ 日期：11/18 – 11/22\n🏡 大本营：全程住博多站前\n\n` +
+      `📍 Day 1 (11/18)：抵达福冈 ➔ 博多站AMU/KITTE购物 ➔ 晚餐：一兰 本社总本店 / 博多多牛\n` +
+      `📍 Day 2 (11/19)：阿苏火山&草千里（JR新干线+阿苏男孩号+产交巴士）➔ 赤牛盖饭 ➔ 晚餐：博多牛肠锅 [使用 Pass]\n` +
+      `📍 Day 3 (11/20)：长崎港都一日游（新干线海鸥号）➔ 平和公园/哥拉巴园/眼镜桥 ➔ 四海楼什锦面/吉宗茶碗蒸 ➔ 稻佐山夜景 [使用 Pass]\n` +
+      `📍 Day 4 (11/21)：糸岛红叶秘境（雷山千如寺400年古枫）➔ 二见浦海上白色鸟居 ➔ 塚本鲜鱼店/糸岛茶房 ➔ 高速巴士直达博多\n` +
+      `📍 Day 5 (11/22)：LaLaPort看1:1高达 ➔ 博多老街(Ming)明太子/通饼伴手礼 ➔ 16:00赴机场返程\n\n` +
+      `🦝 交通推荐：购买【JR 北九州 3日 Pass】，人均立省 1.3 万+ 日元！`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareText).then(() => {
+          alert('✅ 动森旅行卡片文本已复制到剪贴板！可以发给朋友了。');
+        }).catch(() => {
+          legacyCopy(shareText);
+        });
+      } else {
+        legacyCopy(shareText);
+      }
+    }
+
+    function legacyCopy(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        alert('✅ 动森旅行卡片文本已成功复制！');
+      } catch (err) {
+        alert('复制失败，请直接截图分享。');
+      }
+      document.body.removeChild(textArea);
+    }
+  </script>
+</body>
+</html>
